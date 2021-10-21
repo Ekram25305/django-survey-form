@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{%load static%}
+
+<div class="mysign">
+
+    <br>
+    <div class="pagelog">
+        <center>
+               
+            <h2>
+                Registration form
+            </h2>    
+            <form method="POST">
+                {%csrf_token%}
+    
+                <table>
+                    {{register_form.as_table}}
+                </table> 
+    
+                <input type="submit" value="Register"> 
+    
+            </form>
+        </center>
+     
+    </div>
+    <center>
+        {%if messages%}
+        {%for result in messages%}
+        <script>
+            alert('{{result}}')
+        </script>
+        {%endfor%}
+        {%endif%}
+    </center>
+    </div>
+    
+    {%endblock%}    

@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block content %}
+{%load static%}
+<br>
+<h3>Covid 19 Survey Form</h3>
+<center>
+    <div class="survey">
+        <form id="form" method="POST">
+            {%csrf_token%}
+
+            <div class="form-sections">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name" />
+            </div>
+
+            <div class="form-sections">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" />
+            </div>
+
+            <div class="form-sections">
+                <label for="age">Age</label>
+                <input type="text" name="age" id="age" placeholder="Enter your age" />
+            </div>
+
+            <div class="form-sections">
+                <label for="phone" id="phone">Contact</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter your mobile number" />
+            </div>
+
+            <div class="form-sections">
+                <label> Did you suffer from Corona Virus?</label>
+
+                <select>
+                    <option value="">-Select-</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-sections">
+                <label> Are you vaccinated?</label>
+                <select>
+                    <option value="">-Select-</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <p><b>Answer the Questions if you have suffered with Covid 19</b></p>
+
+            <div class="form-sections">
+                <label for="role" id="label-role">How often you get out of the house?</label>
+                <select name="role" id="role">
+                    <option value="">-Select-</option>
+                    <option value="daily">Daily</option>
+                    <option value="every2days">After every 2 days</option>
+                    <option value="week">One time in a week</option>
+                    <option value="other">Can't say</option>
+                </select>
+            </div>
+
+            <div class="form-sections">
+                <label>What were the symptoms?</label>
+                <label for="input-1"><input type="checkbox" name="input">Fever</input></label>
+                <label for="input-2"><input type="checkbox" name="input">Cold</input></label>
+                <label for="input-3"><input type="checkbox" name="input">Cough</input></label>
+                <label for="input-4"><input type="checkbox" name="input">Loss of taste</input></label>
+                <label for="input-5"><input type="checkbox" name="input">Loss of Smell</input></label>
+                <label for="input-6"><input type="checkbox" name="input">Headache</input></label>
+                <label for="input-7"><input type="checkbox" name="input">Body pain</input></label>
+            </div>
+
+            <p><b>Answer the Questions if you have taken the vaccine</b></p>
+            <div class="form-sections">
+                <label for="role" id="label-role">Which vaccine did you took?</label>
+                <select name="role" id="role">
+                    <option value="">-Select-</option>
+                    <option value="covishield">Covishield</option>
+                    <option value="covaxin">Covaxin</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-sections">
+                <label> Have you taken both the doses of vaccine?</label>
+                <select>
+                    <option value="">-Select-</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-sections">
+                <label>Did you get any symptoms after taking vaccine?</label>
+                <label for="input-1"><input type="checkbox" name="input">Fever</input></label>
+                <label for="input-2"><input type="checkbox" name="input">Cold</input></label>
+                <label for="input-3"><input type="checkbox" name="input">Cough</input></label>
+                <label for="input-4"><input type="checkbox" name="input">Diarrhoea</input></label>
+                <label for="input-5"><input type="checkbox" name="input">Headache</input></label>
+                <label for="input-6"><input type="checkbox" name="input">Body pain</input></label>
+            </div>
+
+            <div class="form-sections">
+                <label for="comment">Share your experience regarding Covid 19.</label>
+                <textarea name="comment" id="comment" placeholder="Enter your text here"></textarea>
+            </div>
+
+            <button class="button2" type="reset" value="reset">Reset</button>
+
+            <button class="button2" type="submit" value="submit">Submit</button><br>
+        </form>
+
+    </div>
+</center>
+<center>
+    {%if messages%}
+    {%for result in messages%}
+    <script>
+        alert('{{result}}')
+    </script>
+    {%endfor%}
+    {%endif%}
+</center>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content%}
+{%load static%}
+
+<center>
+    {%if messages%}
+    {%for result in messages%}
+    <script>
+        alert('{{result}}')
+    </script>
+    {%endfor%}
+    {%endif%}
+</center>
+<main>
+
+<center>
+        <div class="slider">
+            <img src="{% static 'images/home.jpg' %}"  alt="home img" width="80%" height="40%">
+        </div>
+    </center>       
+
+</main>
+{% endblock %}
